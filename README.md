@@ -1,19 +1,148 @@
 # Customer Churn Prediction
 
-Churn prediction project using Logistic Regression.
+## Project Overview
 
-Important observations:
-Customers on two-year contracts showed the lowest likelihood of churn.
-Online security and technical support services were strongly associated with customer retention.
-Customers using electronic check payments exhibited higher churn rates.
-Fiber optic internet users demonstrated increased churn propensity.
-Additional service adoption (backup, protection, support) reduced churn risk.
+This project focuses on predicting customer churn using the Telco Customer Churn dataset. The objective is to identify customers who are likely to leave the company and uncover the key factors influencing churn.
 
-AUC-ROC:
-Built a customer churn prediction model using Logistic Regression on the Telco Customer Churn dataset. Achieved 72.8% accuracy, 80% recall on churn customers, and a ROC-AUC score of 0.84. Identified contract duration, online security, and technical support as major retention drivers, while electronic check payments and fiber optic service were associated with higher churn risk.
+---
 
-Recommended model:
-Logistic Regression
+## Business Problem
 
-Reason:
-Although Random Forest achieved higher overall accuracy (78.7%), Logistic Regression achieved substantially higher recall (80% vs 51%) and a better ROC-AUC score (0.836 vs 0.818), making it more effective for identifying customers at risk of churn.
+Customer churn directly impacts revenue and customer lifetime value. By identifying high-risk customers in advance, businesses can take proactive retention measures and reduce customer loss.
+
+---
+
+## Dataset
+
+Dataset: Telco Customer Churn
+
+Features include:
+
+- Customer demographics
+- Account information
+- Contract details
+- Billing information
+- Internet and support services
+- Churn status (Target Variable)
+
+Target Variable:
+
+- Churn
+  - Yes = Customer left
+  - No = Customer stayed
+
+---
+
+## Project Workflow
+
+### 1. Data Cleaning
+
+- Removed customerID column
+- Converted TotalCharges to numeric format
+- Handled missing values
+
+### 2. Exploratory Data Analysis (EDA)
+
+Analyzed:
+
+- Churn distribution
+- Contract type vs churn
+- Tenure vs churn
+- Monthly charges vs churn
+- Service adoption patterns
+
+### 3. Feature Engineering
+
+- Encoded target variable
+- Applied One-Hot Encoding to categorical features
+- Prepared dataset for machine learning
+
+### 4. Model Building
+
+Models trained:
+
+1. Logistic Regression
+2. Random Forest Classifier
+
+---
+
+## Model Performance
+
+### Logistic Regression
+
+| Metric | Score |
+|----------|--------:|
+| Accuracy | 72.8% |
+| Precision | 49% |
+| Recall | 80% |
+| F1 Score | 61% |
+| ROC-AUC | 0.836 |
+
+### Random Forest
+
+| Metric | Score |
+|----------|--------:|
+| Accuracy | 78.7% |
+| Precision | 62% |
+| Recall | 51% |
+| F1 Score | 56% |
+| ROC-AUC | 0.818 |
+
+---
+
+## Model Selection
+
+Although Random Forest achieved higher accuracy, Logistic Regression delivered:
+
+- Higher Recall
+- Better ROC-AUC
+- Better identification of churning customers
+- Greater interpretability
+
+For customer retention campaigns, missing a churning customer is more costly than contacting a few additional customers. Therefore, Logistic Regression was selected as the preferred model.
+
+---
+
+## Key Business Insights
+
+### Factors Reducing Churn
+
+- Two-year contracts significantly reduce churn
+- One-year contracts improve retention
+- Online Security reduces churn risk
+- Tech Support improves customer retention
+- Online Backup increases customer stickiness
+
+### Factors Increasing Churn
+
+- Electronic Check payment method
+- Fiber Optic internet service
+- Paperless Billing
+- Senior Citizen customers
+
+---
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- Scikit-Learn
+
+---
+
+## Future Improvements
+
+- Hyperparameter tuning
+- XGBoost implementation
+- SHAP explainability
+- Streamlit deployment
+- Automated churn risk dashboard
+
+---
+
+## Conclusion
+
+The project successfully identified key drivers of customer churn and developed predictive models capable of detecting at-risk customers. Logistic Regression achieved the best balance between predictive performance and business interpretability, making it the preferred solution for churn prediction.
